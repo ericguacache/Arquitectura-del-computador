@@ -1,0 +1,143 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{booktabs}  % Para líneas de tablas de calidad profesional
+\usepackage{tabularx}  % Para tablas que se ajustan al ancho de la página
+\usepackage{float}     % ¡NUEVO! Para fijar la posición de las tablas con [H]
+
+\geometry{margin=1in}
+
+% Para centrado y alineación en columnas p{}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+
+% Mayor espacio vertical entre las filas de las tablas
+\renewcommand{\arraystretch}{1.3}
+
+\title{Resumen de Arquitectura MIPS}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Formatos básicos de instrucción}
+	
+	\begin{table}[H] % Cambiado a [H] para fijar posición
+		\centering
+		\begin{tabular}{c|c|c|c|c|c|c}
+			\toprule
+			\textbf{Tipo} & \multicolumn{5}{c}{\textbf{Campos}} & \\
+			\midrule
+			R & cod oper (31-26) & rs (25-21) & rt (20-16) & rd (15-11) & desplaz (10-6) & func (5-0) \\
+			I & cod oper (31-26) & rs (25-21) & rt (20-16) & \multicolumn{3}{c}{inmediato (15-0)} \\
+			J & cod oper (31-26) & \multicolumn{5}{c}{dirección (25-0)} \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\section*{Lenguaje ensamblador MIPS}
+	
+	% PARTE 1 DE LA TABLA: Aritmética y Transferencia
+	\begin{table}[H] 
+		\centering
+		\small
+		\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3.5cm} X}
+			\toprule
+			\textbf{Categoría} & \textbf{Instrucción} & \textbf{Ejemplo} & \textbf{Significado} & \textbf{Comentarios} \\
+			\midrule
+			Aritmética 
+			& add & \texttt{add \$s1, \$s2, \$s3} & \texttt{\$s1 = \$s2 + \$s3} & Tres operandos; datos en registros \\
+			& subtract & \texttt{sub \$s1, \$s2, \$s3} & \texttt{\$s1 = \$s2 - \$s3} & Tres operandos; datos en registros \\
+			& add immed. & \texttt{addi \$s1, \$s2, 100} & \texttt{\$s1 = \$s2 + 100} & Usado para sumar constantes \\
+			\midrule
+			Transferencia de dato 
+			& load word & \texttt{lw \$s1, 100(\$s2)} & \texttt{\$s1 = Mem[\$s2+100]} & Palabra de memoria a registro \\
+			& store word & \texttt{sw \$s1, 100(\$s2)} & \texttt{Mem[\$s2+100] = \$s1} & Palabra de registro a memoria \\
+			& load half & \texttt{lh \$s1, 100(\$s2)} & \texttt{\$s1 = Mem[\$s2+100]} & Media palabra de memoria a registro \\
+			& store half & \texttt{sh \$s1, 100(\$s2)} & \texttt{Mem[\$s2+100] = \$s1} & Media palabra de registro a memoria \\
+			& load byte & \texttt{lb \$s1, 100(\$s2)} & \texttt{\$s1 = Mem[\$s2+100]} & Byte de memoria a registro \\
+			& store byte & \texttt{sb \$s1, 100(\$s2)} & \texttt{Mem[\$s2+100] = \$s1} & Byte de registro a memoria \\
+			& load upper immed. & \texttt{lui \$s1, 100} & \texttt{\$s1 = 100 $\cdot 2^{16}$} & Cargar constante en los 16 bits de mayor peso \\
+			\bottomrule
+		\end{tabularx}
+		
+	\end{table}
+	
+	% PARTE 2 DE LA TABLA: Lógica y Saltos (Pasará limpiamente a la siguiente página)
+	\begin{table}[H]
+		\centering
+		\small
+		\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3.5cm} X}
+			\toprule
+			\textbf{Categoría} & \textbf{Instrucción} & \textbf{Ejemplo} & \textbf{Significado} & \textbf{Comentarios} \\
+			\midrule
+			Lógica 
+			& and & \texttt{and \$s1, \$s2, \$s3} & \texttt{\$s1 = \$s2 \& \$s3} & Tres registros operandos; AND bit-a-bit \\
+			& or & \texttt{or \$s1, \$s2, \$s3} & \texttt{\$s1 = \$s2 | \$s3} & Tres registros operandos; OR bit-a-bit \\
+			& nor & \texttt{nor \$s1, \$s2, \$s3} & \texttt{\$s1 = $\sim$(\$s2 | \$s3)} & Tres registros operandos; NOR bit-a-bit \\
+			& and immed. & \texttt{andi \$s1, \$s2, 100} & \texttt{\$s1 = \$s2 \& 100} & AND bit-a-bit registro con constante \\
+			& or immed. & \texttt{ori \$s1, \$s2, 100} & \texttt{\$s1 = \$s2 | 100} & OR bit-a-bit registro con constante \\
+			& shift left & \texttt{sll \$s1, \$s2, 10} & \texttt{\$s1 = \$s2 $\ll$ 10} & Desplazamiento a la izquierda por constante \\
+			& shift right & \texttt{srl \$s1, \$s2, 10} & \texttt{\$s1 = \$s2 $\gg$ 10} & Desplazamiento a la derecha por constante \\
+			\midrule
+			Salto condicional 
+			& branch on eq & \texttt{beq \$s1, \$s2, L} & if (\texttt{\$s1 == \$s2}) go L & Comprueba igualdad y bifurca relativo al PC \\
+			& branch not eq & \texttt{bne \$s1, \$s2, L} & if (\texttt{\$s1 != \$s2}) go L & Comprueba si no igual y bifurca relativo al PC \\
+			& set on less & \texttt{slt \$s1, \$s2, \$s3} & if (\texttt{\$s2 < \$s3}) \texttt{\$s1=1} else \texttt{\$s1=0} & Compara si es menor que; usado con beq, bne \\
+			& set on less imm & \texttt{slti \$s1, \$s2, 100}& if (\texttt{\$s2 < 100}) \texttt{\$s1=1} else \texttt{\$s1=0} & Compara si es menor que una constante \\
+			\midrule
+			Salto incond. 
+			& jump & \texttt{j 2500} & go to 10000 & Salto a la dirección destino \\
+			& jump reg & \texttt{jr \$ra} & go to \texttt{\$ra} & Para retorno de procedimiento \\
+			& jump and link & \texttt{jal 2500} & \texttt{\$ra = PC+4}; go 10000 & Para llamada a procedimiento \\
+			\bottomrule
+		\end{tabularx}
+	
+	\end{table}
+	
+	\section*{Operativos MIPS}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{l X}
+			\toprule
+			\textbf{Nombre} & \textbf{Comentarios} \\
+			\midrule
+			32 registros & \texttt{\$s0-\$s7}, \texttt{\$t0-\$t9}, \texttt{\$zero}, \texttt{\$a0-\$a3}, \texttt{\$v0-\$v1}, \texttt{\$gp}, \texttt{\$fp}, \texttt{\$sp}, \texttt{\$ra}, \texttt{\$at} \newline Localizaciones rápidas para los datos. En MIPS, los datos deben estar en los registros para realizar operaciones aritméticas. El registro MIPS \texttt{\$zero} es siempre igual a 0. El registro \texttt{\$at} está reservado por el ensamblador para manejar constantes grandes. \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	\section*{Nombre de registro, número, uso y convenio de llamada}
+	
+	\begin{table}[H]
+		\centering
+		\small
+		\begin{tabularx}{\textwidth}{l c X c}
+			\toprule
+			\textbf{NOMBRE} & \textbf{NÚMERO} & \textbf{USO} & \textbf{¿SE CONSERVA?} \\
+			\midrule
+			\texttt{\$zero} & 0 & Valor constante 0 & N/A \\
+			\texttt{\$at} & 1 & Ensamblador temporal & No \\
+			\texttt{\$v0-\$v1} & 2-3 & Valores de resultado de funciones y evaluación de expresiones & No \\
+			\texttt{\$a0-\$a3} & 4-7 & Argumentos & No \\
+			\texttt{\$t0-\$t7} & 8-15 & Temporales & No \\
+			\texttt{\$s0-\$s7} & 16-23 & Temporales almacenados & Sí \\
+			\texttt{\$t8-\$t9} & 24-25 & Temporales & No \\
+			\texttt{\$k0-\$k1} & 26-27 & Reservados para el núcleo del Sistema Operativo & No \\
+			\texttt{\$gp} & 28 & Puntero global & Sí \\
+			\texttt{\$sp} & 29 & Puntero de pila & Sí \\
+			\texttt{\$fp} & 30 & Puntero de marco & Sí \\
+			\texttt{\$ra} & 31 & Dirección de retorno & Sí \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+\end{document}
