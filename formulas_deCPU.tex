@@ -1,0 +1,108 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{booktabs}
+
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+% Colores personalizados
+\definecolor{navyblue}{RGB}{0, 51, 102}
+
+% Estilo de los títulos
+\titleformat{\section}{\color{navyblue}\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{navyblue}\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\title{\textbf{Fórmulas de las Prestaciones y Rendimiento de la CPU}}
+\author{Eric Guacache}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Fórmulas para calcular las Prestaciones de un Computador}
+	
+	Para calcular la Prestación de un computador $X$
+	
+	\begin{equation}
+		\text{Prestaciones}_X = \frac{1}{\text{Tiempo de ejecución}_X}
+	\end{equation}
+	
+	Al comparar dos máquinas distintas, $X$ e $Y$, si las prestaciones de $X$ son mayores que las de $Y$, se cumple la siguiente relación:
+	\begin{equation}
+		\text{Prestaciones}_X > \text{Prestaciones}_Y
+	\end{equation}
+	Sustituyendo la definición fundamental, obtenemos:
+	\begin{equation}
+		\frac{1}{\text{Tiempo de ejecución}_X} > \frac{1}{\text{Tiempo de ejecución}_Y}
+	\end{equation}
+	Lo que implica necesariamente que el tiempo de ejecución de la máquina de menores prestaciones es mayor:
+	\begin{equation}
+		\text{Tiempo de ejecución}_Y > \text{Tiempo de ejecución}_X
+	\end{equation}
+	Esto significa que el tiempo de ejecución de $Y$ es mayor que el de $X$, confirmando que $X$ es más rápido que $Y$.
+	
+	\subsection{Comparación de Prestaciones de 2 Computadores}
+	Para expresar numéricamente cuánto más rápida es una máquina en comparación con otra, utilizamos la frase ``$X$ es $n$ veces más rápida que $Y$'', lo cual se define matemáticamente como:
+	\begin{equation}
+		\frac{\text{Prestaciones}_X}{\text{Prestaciones}_Y} = n
+	\end{equation}
+	Haciendo el cambio a términos de tiempo de ejecución, la relación se invierte:
+	\begin{equation}
+		\frac{\text{Prestaciones}_X}{\text{Prestaciones}_Y} = \frac{\text{Tiempo de ejecución}_Y}{\text{Tiempo de ejecución}_X} = n
+	\end{equation}
+	
+	\section{Ecuaciones para calcular el tiempo de ejecución de CPU}
+	
+	Para calcular el tiempo de ejecución de CPU se usan las siguientes fórmulas:
+	
+	\begin{equation}
+		\text{Tiempo de ejecución de CPU} = \text{Ciclos de reloj de la CPU} \times \text{Tiempo del ciclo de reloj}
+	\end{equation}
+	
+	Alternativamente, dado que la frecuencia de reloj ($f$) es la inversa del tiempo de ciclo ($T = 1/f$), la ecuación se puede reescribir de la siguiente manera:
+	
+	\begin{equation}
+		\text{Tiempo de ejecución de CPU} = \frac{\text{Ciclos de reloj de la CPU}}{\text{Frecuencia de reloj}}
+	\end{equation}
+	
+	\section{La Ecuación alternativa para el tiempo de ejecución}
+	
+	También puedes usar esta ecuación alternativa para el tiempo de ejecución usando el \textbf{número de instrucciones} (instrucciones ejecutadas por el programa), el \textbf{CPI} (Ciclos Por Instrucción) y el tiempo de ciclo:
+	
+	\begin{equation}
+		\text{Tiempo de ejecución} = \text{Número de instrucciones} \times \text{CPI} \times \text{Tiempo de ciclo}
+	\end{equation}
+	
+	O bien, utilizando nuevamente el inverso del tiempo de ciclo (la frecuencia de reloj):
+	\begin{equation}
+		\text{Tiempo de ejecución} = \frac{\text{Número de instrucciones} \times \text{CPI}}{\text{Frecuencia de reloj}}
+	\end{equation}
+	
+	\section{Cosas que tienes que recordar}
+	
+	\begin{table}[h!]
+		\centering
+		% Cambiamos lll por columnas p{} para permitir que el texto salte de línea y no desborde la página
+		\begin{tabular}{l | p{7cm} | p{4.5cm}}
+			\toprule
+			\textbf{Métrica} & \textbf{Definición} & \textbf{Unidad Típica} \\
+			\midrule
+			Tiempo de ejecución & Tiempo total dedicado a una tarea & Segundos (s), Milisegundos (ms) \\
+			\midrule
+			Número de instrucciones & Cantidad de instrucciones ejecutadas & Instrucciones \\
+			\midrule
+			CPI & Ciclos de reloj promedio por instrucción & Ciclos / Instrucción \\
+			\midrule
+			Frecuencia de reloj & Velocidad de oscilación del reloj del sistema & Hertz (Hz), Gigahertz (GHz) \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+\end{document}
+
