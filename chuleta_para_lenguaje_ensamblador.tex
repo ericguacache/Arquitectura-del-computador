@@ -4,19 +4,19 @@
 \usepackage{amsmath}
 \usepackage{array}
 \usepackage{geometry}
-\usepackage{booktabs}   % Para líneas de tablas de calidad profesional
-\usepackage{float}      % Para fijar la posición de las tablas normales con [H]
-\usepackage{xltabular}  % Combina tablas de ancho fijo con multipágina
+\usepackage{booktabs}   
+\usepackage{float}      
+\usepackage{xltabular}  
 
 \geometry{margin=1in}
 
-% Para centrado y alineación en columnas p{}
+
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
 \newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
 \newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
 
-% Mayor espacio vertical entre las filas de las tablas
+
 \renewcommand{\arraystretch}{1.3}
 
 \title{Resumen de Arquitectura MIPS}
@@ -61,7 +61,9 @@
 			\textbf{Tipo} & \multicolumn{5}{c}{\textbf{Campos}} & \\
 			\midrule
 			R & cod oper (31-26) & rs (25-21) & rt (20-16) & rd (15-11) & desplaz (10-6) & func (5-0) \\
+			\midrule
 			I & cod oper (31-26) & rs (25-21) & rt (20-16) & \multicolumn{3}{c}{inmediato (15-0)} \\
+			\midrule
 			J & cod oper (31-26) & \multicolumn{5}{c}{dirección (25-0)} \\
 			\bottomrule
 		\end{tabular}
@@ -71,32 +73,31 @@
 	
 	\section*{Funciones de lenguaje ensamblador MIPS}
 	
-	% TABLA ÚNICA MULTIPÁGINA CON LÍNEAS INTERMEDIAS (Mantiene el estilo original de booktabs)
+
 	\small
 	\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} | >{\raggedright\arraybackslash}p{2.2cm} | >{\raggedright\arraybackslash}p{3cm} | >{\raggedright\arraybackslash}p{3.5cm} X}
 		\caption{Instrucciones MIPS.}\\
 		\toprule
 		\textbf{Categoría} & \textbf{Instrucción} & \textbf{Ejemplo} & \textbf{Significado} & \textbf{Comentarios} \\
 		\midrule
-		\endfirsthead % Esto define la cabecera de la primera página
+		\endfirsthead 
 		
 		\multicolumn{5}{c}{{\bfseries \tablename\ \thetable{} -- Continuación de la página anterior}} \\
 		\toprule
 		\textbf{Categoría} & \textbf{Instrucción} & \textbf{Ejemplo} & \textbf{Significado} & \textbf{Comentarios} \\
 		\midrule
-		\endhead % Esto repite la cabecera en las siguientes páginas
+		\endhead 
 		
 		\bottomrule
-		\endfoot % Línea inferior en páginas intermedias
-		
+		\endfoot 
 		\bottomrule
-		\endlastfoot % Línea inferior en la última página
+		\endlastfoot 
 		
 		Aritmética 
 		& add & \texttt{add \$s1, \$s2, \$s3} & \texttt{\$s1 = \$s2 + \$s3} & Tres operandos; datos en registros \\ \cline{2-5}
 		& subtract & \texttt{sub \$s1, \$s2, \$s3} & \texttt{\$s1 = \$s2 - \$s3} & Tres operandos; datos en registros \\ \cline{2-5}
 		& add immed. & \texttt{addi \$s1, \$s2, 100} & \texttt{\$s1 = \$s2 + 100} & Usado para sumar constantes \\
-		\midrule % Línea completa para separar grandes categorías
+		\midrule 
 		Transferencia de dato 
 		& load word & \texttt{lw \$s1, 100(\$s2)} & \texttt{\$s1 = Mem[\$s2+100]} & Palabra de memoria a registro \\ \cline{2-5}
 		& store word & \texttt{sw \$s1, 100(\$s2)} & \texttt{Mem[\$s2+100] = \$s1} & Palabra de registro a memoria \\ \cline{2-5}
@@ -105,7 +106,7 @@
 		& load byte & \texttt{lb \$s1, 100(\$s2)} & \texttt{\$s1 = Mem[\$s2+100]} & Byte de memoria a registro \\ \cline{2-5}
 		& store byte & \texttt{sb \$s1, 100(\$s2)} & \texttt{Mem[\$s2+100] = \$s1} & Byte de registro a memoria \\ \cline{2-5}
 		& load upper immed. & \texttt{lui \$s1, 100} & \texttt{\$s1 = 100 $\cdot 2^{16}$} & Cargar constante en los 16 bits de mayor peso \\
-		\midrule % Línea completa para separar grandes categorías
+		\midrule 
 		Lógica 
 		& and & \texttt{and \$s1, \$s2, \$s3} & \texttt{\$s1 = \$s2 \& \$s3} & Tres registros operandos; AND bit-a-bit \\ \cline{2-5}
 		& or & \texttt{or \$s1, \$s2, \$s3} & \texttt{\$s1 = \$s2 | \$s3} & Tres registros operandos; OR bit-a-bit \\ \cline{2-5}
@@ -114,13 +115,13 @@
 		& or immed. & \texttt{ori \$s1, \$s2, 100} & \texttt{\$s1 = \$s2 | 100} & OR bit-a-bit registro con constante \\ \cline{2-5}
 		& shift left & \texttt{sll \$s1, \$s2, 10} & \texttt{\$s1 = \$s2 $\ll$ 10} & Desplazamiento a la izquierda por constante \\ \cline{2-5}
 		& shift right & \texttt{srl \$s1, \$s2, 10} & \texttt{\$s1 = \$s2 $\gg$ 10} & Desplazamiento a la derecha por constante \\
-		\midrule % Línea completa para separar grandes categorías
+		\midrule 
 		Salto condicional 
 		& branch on eq & \texttt{beq \$s1, \$s2, L} & if (\texttt{\$s1 == \$s2}) go L & Comprueba igualdad y bifurca relativo al PC \\ \cline{2-5}
 		& branch not eq & \texttt{bne \$s1, \$s2, L} & if (\texttt{\$s1 != \$s2}) go L & Comprueba si no igual y bifurca relativo al PC \\ \cline{2-5}
 		& set on less & \texttt{slt \$s1, \$s2, \$s3} & if (\texttt{\$s2 < \$s3}) \texttt{\$s1=1} else \texttt{\$s1=0} & Compara si es menor que; usado con beq, bne \\ \cline{2-5}
 		& set on less imm & \texttt{slti \$s1, \$s2, 100}& if (\texttt{\$s2 < 100}) \texttt{\$s1=1} else \texttt{\$s1=0} & Compara si es menor que una constante \\
-		\midrule % Línea completa para separar grandes categorías
+		\midrule 
 		Salto incond. 
 		& jump & \texttt{j 2500} & go to 10000 & Salto a la dirección destino \\ \cline{2-5}
 		& jump reg & \texttt{jr \$ra} & go to \texttt{\$ra} & Para retorno de procedimiento \\ \cline{2-5}
