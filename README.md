@@ -1,2 +1,2 @@
 # Arquitectura-computador
-Tarea de arquitectura del computador 
+Tareas de arquitectura del computador 
