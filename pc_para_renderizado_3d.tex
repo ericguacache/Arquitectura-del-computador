@@ -1,0 +1,163 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	urlcolor=blue,
+	citecolor=blue
+}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% --- SOLUCIÓN ERROR U+202F ---
+% Convierte los espacios estrechos copiados de internet en espacios irrompibles estándar de LaTeX
+\DeclareUnicodeCharacter{202F}{~}
+\DeclareUnicodeCharacter{2011}{-} % Por si acaso se cuela un guión irrompible
+
+% --- CONFIGURACIÓN DE IMÁGENES ---
+\graphicspath{{./imagenes/}} 
+
+\newcommand{\insertarimagen}[4]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#2\textwidth]{#1}
+		\caption{#3}
+		\label{#4}
+	\end{figure}
+}
+% ---------------------------------
+
+% --- SOLUCIÓN ADVERTENCIA HEADHEIGHT ---
+\setlength{\headheight}{14pt} 
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small PC para Renderizado 3D por <\$3000}
+\fancyhead[R]{\small Informe Técnico}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Title
+\title{\textbf{Informe desenfadado: PC para Renderizado 3D\\ por menos de 3000 dólares}}
+\author{yo}
+\date{no se wey}
+
+\begin{document}
+	
+	\maketitle
+	\thispagestyle{fancy}
+	
+	\section{¿Para qué necesitamos esta bestia?}
+	Si estás leyendo esto, seguro que ya sabes que el renderizado 3D se come los ordenadores de gama baja como si fueran galletas. Ya sea que trabajes con Blender, Maya, 3ds Max, Cinema 4D o cualquier software que ponga a sudar la CPU y la GPU, necesitas un equipo que no te deje tirado a mitad de un proyecto.
+	
+	El presupuesto es de \textbf{3000 dólares} como máximo. Con esa cifra podemos montar una máquina increíble, equilibrada y fiable. Hemos elegido componentes de marcas reconocidas, sin experimentos raros, priorizando la potencia bruta pero sin olvidar la estabilidad térmica y eléctrica. ¿Lo mejor? Nos sobrarán casi 340\$ para caprichos, almacenamiento extra o licencias de software.
+	
+	En este informe te contamos qué hemos escogido, por qué y qué rendimiento puedes esperar. Y lo haremos en un tono relajado, porque ya está bien de informes aburridos. ¡Vamos al lío!
+	
+	\section{Lista de componentes y precios}
+	Aquí tienes el resumen de lo que montaremos. Todos los precios son estimados en USD a fecha de mayo de 2026 y pueden variar según la tienda. Para que no pierdas tiempo, los enlaces en el modelo te llevan directamente al producto en Amazon.
+	
+	% --- SOLUCIÓN TABLA OVERFULL HBOX ---
+	\begin{table}[H] 
+		\centering
+		% Usamos p{5.5cm} en la tercera columna para permitir saltos de línea automáticos
+		\begin{tabular}{@{}ll p{5.5cm} l@{}}
+			\toprule
+			\textbf{Componente} & \textbf{Modelo} & \textbf{Especificaciones clave} & \textbf{Precio} \\
+			\midrule
+			CPU & \href{https://www.amazon.com.mx/AMD-RyzenTM-9950X-procesador-desbloqueado/dp/B0D6NNRBGP}{Ryzen 9 9950X} & 16 núcleos / 32 hilos, 5.7 GHz boost, AM5 & \$499.00 \\
+			\midrule
+			GPU & \href{https://www.amazon.es/Tarjeta-GIGABYTE-WINDFORCE-enfriamiento-GV-N5080WF3OC-16GD/dp/B0DS2R7N4F}{RTX 5080 WINDFORCE OC} & 16 GB GDDR7, 10752 CUDA, PCIe 5.0 & \$1,100.00 \\
+			\midrule
+			RAM & \href{https://www.amazon.com/-/es/CORSAIR-Vengeance-Memoria-computadora-compatible/dp/B0CJ8ZHMVF}{Corsair Vengeance DDR5} & 32 GB (2×16), 6000 MT/s, CL30, EXPO & \$149.99 \\
+			\midrule
+			Placa base & \href{https://www.amazon.es/MSI-MAG-TOMAHAWK/dp/B0DGB8Q19Y}{MSI X870 TOMAHAWK WIFI} & Chipset X870, AM5, PCIe 5.0, Wi‑Fi 7 & \$314.40 \\
+			\midrule
+			Refrigeración & \href{https://www.amazon.es/Noctua-NH-D15-chromax-Black-Enfriador-torres/dp/B07Y87YHRH}{Noctua NH-D15 chromax.black} & Doble torre, 6 heatpipes, 2 vent. 140 mm & \$179.95 \\
+			\midrule
+			Fuente & \href{https://www.amazon.com/-/es/MSI-alimentaci%C3%B3n-compacta-totalmente-garant%C3%ADa/dp/B0CT3XNCZ9}{MSI MAG A1000GL PCIE5} & 1000 W, 80+ Gold, ATX 3.1, modular & \$169.99 \\
+			\midrule
+			Almac. & \href{https://www.amazon.com/-/es/Crucial-computadoras-port%C3%A1tiles-escritorio-recuperaci%C3%B3n/dp/B0DC8VPSHV}{Crucial P310 NVMe M.2} & 1 TB, PCIe Gen4, lectura 7.100 MB/s & \$144.00 \\
+			\midrule
+			Pasta térmica & Thermal Grizzly Kryonaut & 12.5 W/mK, no conductora (1 g) & \$14.00 \\
+			\midrule
+			Chasis & \href{https://www.amazon.com/-/es/computadora-estante-disipaci%C3%B3n-ampliamente-extendido/dp/B0DDXBRJZ3}{Estante abierto (open frame)} & Estructura ATX, montaje vertical & \$90.00 \\
+			\midrule
+			\multicolumn{3}{r}{\textbf{Total estimado}} & \textbf{\$2,661.33} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Configuración completa con precios y enlaces}
+		\label{tab:componentes}
+	\end{table}
+	
+	\section{¿Por qué hemos elegido cada pieza?}
+	
+	Aquí te explicamos la selección sin tecnicismos innecesarios. Cada componente suma para que el conjunto sea una máquina estable, rápida y lista para tragarse renders como pipas.
+	
+	\subsection{CPU: AMD Ryzen 9 9950X}
+	Este procesador es el rey del renderizado por CPU. Con 16 núcleos y 32 hilos, maneja simulaciones y cálculos de iluminación como si nada. Su frecuencia turbo de hasta 5.7 GHz también acelera el modelado y la animación, que dependen más de un solo núcleo. 
+	\textit{Por cierto}, el TDP de 170 W no es broma, pero la refrigeración que hemos elegido lo mantendrá fresquito incluso en sesiones de 12 horas.
+	
+	\subsection{GPU: Gigabyte RTX 5080 WINDFORCE OC}
+	La renderización con GPU es imbatible en velocidad, y la RTX 5080 viene con 10.752 núcleos CUDA y 16 GB de VRAM GDDR7. Eso te permite cargar escenas enormes sin que el programa se queje de falta de memoria. Además, el sistema de refrigeración WindForce de Gigabyte es silencioso y eficaz, perfecto para evitar que la tarjeta baje de frecuencia cuando más la necesitas.
+	
+	\subsection{RAM: Corsair Vengeance DDR5 32 GB (6000 MHz CL30)}
+	Los 32 GB son el mínimo que recomendamos para trabajar con comodidad: abrir varias aplicaciones, tener texturas pesadas en memoria y lanzar un render de prueba sin cierres inesperados. La velocidad de 6000 MT/s es el punto dulce para la plataforma AM5, y el perfil EXPO facilita la configuración con un solo clic. Además, el disipador de perfil bajo evita conflictos con el enorme Noctua que montamos.
+	
+	\subsection{Placa base: MSI MAG X870 TOMAHAWK WIFI}
+	Aquí no escatimamos. El chipset X870 soporta PCIe 5.0 tanto para la GPU como para SSDs, lo que asegura que el sistema no se quede obsoleto en un par de años. Su VRM aguanta CPUs de alto consumo sin pestañear, y trae Wi‑Fi 7 y LAN de 5 GbE, ideal si trabajas con archivos en red o te gusta tener el escritorio despejado de cables.
+	
+	\subsection{Refrigeración y pasta térmica}
+	El \textbf{Noctua NH-D15 chromax.black} es un clásico por algo: enfría como un AIO de 280 mm pero sin riesgo de fugas y con un ruido mínimo. Sus dos ventiladores de 140 mm y las seis heatpipes absorben los 170 W del procesador sin despeinarse. La \textbf{Thermal Grizzly Kryonaut} es una pasta de altas prestaciones que asegura una transferencia térmica perfecta entre el IHS y el disipador. Con estos dos, las temperaturas serán tus amigas.
+	
+	\subsection{Fuente de alimentación: MSI MAG A1000GL}
+	Los 1000 vatios dan margen de sobra para los picos de consumo que pueden dar la CPU y la GPU juntas. Al ser 80+ Gold y totalmente modular, mantiene la eficiencia y deja el montaje muy limpio. Además, ya incluye el conector 12V-2x6 nativo para la RTX 5080, así que nada de adaptadores extraños.
+	
+	\subsection{Almacenamiento: Crucial P310 1 TB}
+	Un SSD Gen4 con 7.100 MB/s de lectura hace que el sistema operativo, los programas y los proyectos carguen en un suspiro. Con 1 TB tendrás espacio para el software y varios proyectos activos. Si más adelante necesitas más, siempre puedes añadir un segundo NVMe o un disco externo sin complicaciones.
+	
+	\subsection{Chasis abierto}
+	Hemos optado por un estante de marco abierto porque el flujo de aire es inmejorable y cualquier actualización o limpieza se hace en segundos. Además, ver los componentes a la vista mola bastante. Si prefieres una caja cerrada tradicional, el presupuesto te permite cambiar sin problemas.
+	
+	\section{Rendimiento esperado en renderizado 3D}
+	¿Qué significan todas estas cifras cuando le das a ``Render''? Pues muy sencillo:
+	
+	\begin{itemize}[leftmargin=*,itemsep=3pt]
+		\item \textbf{Blender (Cycles en CPU):} Con los 16 núcleos del Ryzen 9, una escena que antes tardaba 40 minutos se puede ir a unos 8‑10 minutos. En tests similares, esta CPU compite de tú a tú con estaciones de trabajo que cuestan el doble.
+		\item \textbf{Blender (Cycles con OptiX / GPU):} La RTX 5080 te permitirá previsualizar y renderizar imágenes fotorrealistas casi al instante. Escenas complejas que antes requerían horas se completan en minutos.
+		\item \textbf{Otros motores (V-Ray, Arnold, Redshift, Octane):} La combinación de CUDA y 16 GB de VRAM gestiona sin esfuerzo geometrías pesadas, texturas 4K y múltiples luces. No tendrás que reducir calidad para que la tarjeta no colapse.
+		\item \textbf{Simulaciones de fluidos, humo o telas:} El gran ancho de banda de la RAM y el poder multinúcleo de la CPU permiten calcular simulaciones mientras trabajas en otros elementos, sin que el sistema se vuelva lento.
+	\end{itemize}
+	
+	Además, al usar un almacenamiento tan rápido, los tiempos de carga de archivos, texturas y cachés se reducen drásticamente. Esto agiliza todo el flujo de trabajo, no solo el render final.
+	
+	\section{¿Queda presupuesto? Consejos finales}
+	Sí, el total estimado es de \textbf{2.661,33 \$}, por lo que te sobran unos \textbf{338 \$}. Aquí van algunas ideas para invertirlos:
+	
+	\begin{itemize}
+		\item Un segundo SSD NVMe de 1 TB para dedicar exclusivamente a proyectos actuales o como disco de caché.
+		\item Un monitor profesional con buena cobertura de color (sRGB, Adobe RGB) si todavía no tienes uno.
+		\item Una licencia del software que vayas a utilizar (Blender es gratuito, pero otros motores pueden requerir compra).
+		\item Un teclado y un ratón ergonómicos, porque las largas sesiones de trabajo lo agradecerán.
+	\end{itemize}
+	
+	Si prefieres un chasis cerrado, hay cajas con excelente flujo de aire por menos de 100 \$; el resto del presupuesto no se vería afectado.
+	
+	Por último, recuerda que los precios fluctúan. Si encuentras alguna oferta, puedes reinvertir el ahorro en más RAM (llevar el equipo a 64 GB sería una actualización estupenda si trabajas con escenas muy pesadas) o en un sistema de refrigeración líquida AIO de 360 mm si prefieres un aspecto diferente (aunque el Noctua es más silencioso y no tiene mantenimiento).
+	
+	\section*{Conclusión}
+	Montar un PC para renderizado 3D por menos de 3.000 \$ es totalmente factible y este conjunto es una apuesta segura. Hemos puesto el foco en la fiabilidad, el rendimiento sostenido y la ausencia de cuellos de botella. Con esta máquina podrás afrontar proyectos profesionales sin miedo a que el hardware se convierta en un obstáculo.
+	
+	¿El resultado? Una bestia de renderizado, silenciosa y abierta a futuras ampliaciones. Ahora solo te queda pedir los componentes, disfrutar del montaje y ver cómo tus renders vuelan. ¡A crear!
+	
+\end{document}
