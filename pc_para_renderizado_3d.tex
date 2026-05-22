@@ -68,36 +68,40 @@
 	
 	a continuación te contaremos qué componentes hemos escogido para este ensamble, el por qué lo hemos elegido y qué rendimiento que podemos esperar de este ensamble.
 	
+	\clearpage
+	
 	\section{Lista de componentes y precios}
-	Aquí tienes el resumen de lo que montaremos. Todos los precios son estimados en USD a fecha del 21 de mayo de 2026 (21/05/2026) y pueden variar según la tienda. Para no perder mas tiempo, los enlaces en el modelo te llevan directamente al producto en Amazon.
+	Aquí esta una tabla con todos los componente del ensamble que armaremos, con sus especificaciones y precios en dollares tomados en la fecha del 21 de mayo de 2026.
 	
 	% --- SOLUCIÓN TABLA OVERFULL HBOX ---
 	\begin{table}[H] 
 		\centering
 		% Usamos p{5.5cm} en la tercera columna para permitir saltos de línea automáticos
-		\begin{tabular}{@{}ll p{5.5cm} l@{}}
+		\begin{tabular}{@{}l|l| p{5.5cm} |l@{}}
 			\toprule
 			\textbf{Componente} & \textbf{Modelo} & \textbf{Especificaciones clave} & \textbf{Precio} \\
 			\midrule
 			CPU & \href{https://www.amazon.com.mx/AMD-RyzenTM-9950X-procesador-desbloqueado/dp/B0D6NNRBGP}{Ryzen 9 9950X} & 16 núcleos / 32 hilos, 5.7 GHz boost, AM5 & \$499.00 \\
 			\midrule
-			GPU & \href{https://www.amazon.es/Tarjeta-GIGABYTE-WINDFORCE-enfriamiento-GV-N5080WF3OC-16GD/dp/B0DS2R7N4F}{RTX 5080 WINDFORCE OC} & 16 GB GDDR7, 10752 CUDA, PCIe 5.0 & \$1,100.00 \\
+			GPU & \href{https://www.amazon.es/Tarjeta-GIGABYTE-WINDFORCE-enfriamiento-GV-N5080WF3OC-16GD/dp/B0DS2R7N4F}{RTX 5080 WINDFORCE OC} & 16 GB GDDR7, 10752 CUDA, PCIe 5.0 & \$1,355.99 \\
 			\midrule
-			RAM & \href{https://www.amazon.com/-/es/CORSAIR-Vengeance-Memoria-computadora-compatible/dp/B0CJ8ZHMVF}{Corsair Vengeance DDR5} & 32 GB (2×16), 6000 MT/s, CL30, EXPO & \$149.99 \\
+			RAM & \href{https://www.amazon.com/-/es/CORSAIR-Vengeance-Memoria-computadora-compatible/dp/B0CJ8ZHMVF}{Corsair Vengeance DDR5} & 32 GB (2×16), 6000 MT/s, CL30, EXPO & \$377.59 \\
 			\midrule
-			Placa base & \href{https://www.amazon.es/MSI-MAG-TOMAHAWK/dp/B0DGB8Q19Y}{MSI X870 TOMAHAWK WIFI} & Chipset X870, AM5, PCIe 5.0, Wi‑Fi 7 & \$314.40 \\
+			Placa base & \href{https://www.amazon.es/MSI-MAG-TOMAHAWK/dp/B0DGB8Q19Y}{ASUS TUF Gaming X870-PLUS} & Chipset X870, AM5, PCIe 5.0, Wi‑Fi 7 & \$198.00 \\
 			\midrule
-			Refrigeración & \href{https://www.amazon.es/Noctua-NH-D15-chromax-Black-Enfriador-torres/dp/B07Y87YHRH}{Noctua NH-D15 chromax.black} & Doble torre, 6 heatpipes, 2 vent. 140 mm & \$179.95 \\
+			Disipador & \href{https://www.amazon.es/Noctua-NH-D15-chromax-Black-Enfriador-torres/dp/B07Y87YHRH}{Noctua NH-D15 chromax.black} & Doble torre, 6 heatpipes, 2 ventiladores 140 mm & \$124.95 \\
 			\midrule
-			Fuente & \href{https://www.amazon.com/-/es/MSI-alimentaci%C3%B3n-compacta-totalmente-garant%C3%ADa/dp/B0CT3XNCZ9}{MSI MAG A1000GL PCIE5} & 1000 W, 80+ Gold, ATX 3.1, modular & \$169.99 \\
+			Fuente & \href{https://www.amazon.com/-/es/MSI-alimentaci%C3%B3n-compacta-totalmente-garant%C3%ADa/dp/B0CT3XNCZ9}{MSI MAG A1000GL PCIE5} & 1000 W, 80+ Gold, ATX 3.1, modular & \$134.99 \\
 			\midrule
-			Almac. & \href{https://www.amazon.com/-/es/Crucial-computadoras-port%C3%A1tiles-escritorio-recuperaci%C3%B3n/dp/B0DC8VPSHV}{Crucial P310 NVMe M.2} & 1 TB, PCIe Gen4, lectura 7.100 MB/s & \$144.00 \\
+			Almacenamiento & \href{https://www.amazon.com/-/es/Crucial-computadoras-port%C3%A1tiles-escritorio-recuperaci%C3%B3n/dp/B0DC8VPSHV}{Crucial P310 NVMe M.2} & 1 TB, PCIe Gen4, lectura 7.100 MB/s & \$188.99 \\
 			\midrule
-			Pasta térmica & Thermal Grizzly Kryonaut & 12.5 W/mK, no conductora (1 g) & \$14.00 \\
+			Thermal pad &\href{https://www.amazon.com/-/es/Crucial-computadoras-port%C3%A1tiles-escritorio-recuperaci%C3%B3n/dp/B0DC8VPSHV/ref=sr_1_8}{Thermal Grizzly Kryonaut}  & 33x33x0,2mm & \$24.99 \\
 			\midrule
-			Chasis & \href{https://www.amazon.com/-/es/computadora-estante-disipaci%C3%B3n-ampliamente-extendido/dp/B0DDXBRJZ3}{Estante abierto (open frame)} & Estructura ATX, montaje vertical & \$90.00 \\
+			Chasis & \href{https://www.amazon.com/-/es/computadora-estante-disipaci%C3%B3n-ampliamente-extendido/dp/B0DDXBRJZ3}{Estante abierto (open frame)} & Estructura ATX, montaje vertical & \$21.99 \\
 			\midrule
-			\multicolumn{3}{r}{\textbf{Total estimado}} & \textbf{\$2,661.33} \\
+			Ventilación & \href{https://www.amazon.com/-/es/Noctua-NF-P12-PWM-Enfriamiento-1700/dp/B07CG2PGY6/ref=sr_1_16}{Noctua NF-P12 redux-1700}&4 ventiladores 120 mm &\$65.84 \\
+			\midrule
+			\multicolumn{3}{r}{\textbf{Total estimado}} & \textbf{\$2.992.29} \\
 			\bottomrule
 		\end{tabular}
 		\caption{Configuración completa con precios y enlaces}
