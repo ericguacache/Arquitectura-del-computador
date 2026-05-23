@@ -47,15 +47,49 @@
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
-% Title
-\title{\textbf{Informe de PC para Renderizado 3D\\ por menos de 3000 dólares}}
-\author{Eric Guacache CI:31.788.759 \\ Renny Alfonzo CI:desconocida}
-\date{}
-
 \begin{document}
 	
-	\maketitle
-	\thispagestyle{fancy}
+	% --- PORTADA ---
+	\begin{titlepage}
+		\centering
+		\thispagestyle{fancy} % Mantiene el encabezado/pie de página solicitado
+		
+		% Genera un gran espacio en blanco arriba para empujar el título hacia abajo
+		\vspace*{9cm} 
+		
+		{\Huge\textbf{Informe de PC para Renderizado 3D\\ por menos de 3000 dólares}}
+		
+		% Separación controlada entre el título y los autores
+		\vspace{2cm} 
+		
+		{\large\textbf{Autores:}} \\[0.3cm]
+		{\large Eric Guacache -- C.I: 31.788.759} \\[0.2cm]
+		{\large Renny Andrade -- C.I: 29.727.828}
+		
+		\vfill % Empuja el resto del espacio hacia el final de la página
+	\end{titlepage}
+	
+	\clearpage
+	
+	% --- ÍNDICE MEJORADO Y CENTRADO ---
+	\begin{center}
+		\vspace*{1cm}
+		{\Huge\textbf{Índice}}
+		\vspace{2cm}
+		
+		\begin{tabular}{r p{1cm} l}
+			\large\textbf{Pág.} & & \large\textbf{Sección} \\
+			\midrule[1pt]
+			\textbf{3} & \dotfill & Introducción \\
+			\textbf{4} & \dotfill & Lista de Componentes y Precios \\
+			\textbf{5} & \dotfill & ¿Por qué hemos elegido estos componentes? \\
+			\textbf{7} & \dotfill & Rendimiento esperado en renderizado 3D \\
+			\textbf{8} & \dotfill & ¿Qué hacemos con lo que queda? y El Resultado \\
+			\textbf{9} & \dotfill & Conclusión \\
+		\end{tabular}
+	\end{center}
+	
+	\clearpage
 	
 	\section{Introducción}
 	Cuando se habla de renderizado 3D profesional, los ordenadores convencionales no son lo suficientemente aptos para esta tarea, y si nos vamos a ordenadores de gama baja, directamente son descartados. Ya sean trabajos con Blender, Maya, 3ds Max, Cinema 4D o cualquier software de renderizado 3D, la demanda de recursos es alta, siendo prácticamente obligatorio preparar un ordenador que sea apto para trabajar de manera óptima, fluida y sin cuelgues de los programas.
@@ -102,13 +136,16 @@
 		\end{tabular}
 	\end{table}
 	
+	\clearpage
+	
 	\section{¿Por qué hemos elegido estos componentes?}
 	
-	A continuación, una breve explicación sobre cada componente del armado especializado en render 3D con sus respectivas imágenes de referencia.
+	La eleccion de estos componentes nos permitira lograr el objetivo de tener un computador lo suficientemente pontente como para manejar renderizado 3D sin problemas. A continuación, una breve explicación sobre cada componente del armado especializado en render 3D con sus respectivas imágenes de referencia.
 	
 	\subsection{CPU: AMD Ryzen 9 9950X}
 	Este procesador es el más adecuado para el renderizado por CPU, el cual es más indicado si quieres precisión y reducir el ruido de los renders 3D. Con 16 núcleos y 32 hilos, maneja simulaciones y cálculos de iluminación sin ningún tipo de problema. Gracias a su frecuencia turbo de hasta 5.7 GHz, también es capaz de acelerar el modelado y la animación, que dependen más de la frecuencia del procesador. 
 	\textit{Por cierto}, aunque su TDP de 170 W es bastante alto, la refrigeración que hemos elegido lo mantendrá fresquito incluso en sesiones de renderizado de larga duración.
+	
 	
 	\begin{figure}[H]
 		\centering
@@ -118,74 +155,87 @@
 	\subsection{GPU: Gigabyte RTX 5080 WINDFORCE OC}
 	La renderización por GPU es una excelente opción para mejorar la velocidad del renderizado sin perder casi nada de calidad, y la RTX 5080 de Nvidia es la mejor opción costo-beneficio de la serie 50. Viene con 10.752 núcleos CUDA y 16 GB de VRAM GDDR7, ofreciendo una optimización excelente en la mayoría de los programas de renderizado 3D. Esto permite cargar escenas enormes sin que el programa se queje de falta de memoria. Además, el sistema de refrigeración WindForce de Gigabyte es silencioso y eficaz, perfecto para evitar que la tarjeta se caliente y baje de frecuencia por la temperatura.
 	
+	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.4\linewidth]{../IMG_20260521_213436}
 	\end{figure}
 	
 	\subsection{RAM: Corsair Vengeance DDR5 32 GB}
-	Los 32 GB son el mínimo recomendable para trabajar con comodidad: permite tener abiertas varias aplicaciones simultáneamente, cargar texturas de alta calidad en la memoria RAM y minimizar la posibilidad de cierres o cuelgues inesperados. Además, cuenta con velocidades de 6000 MT/s para evitar retrasos y latencia, y un disipador de perfil bajo para evitar que choque con el disipador Noctua.
+	Los 32 GB son el mínimo recomendable para trabajar con comodidad: permite tener abiertas varias aplicaciones simultáneamente, cargar texturas de alta calidad en la memoria RAM and minimizar la posibilidad de cierres o cuelgues inesperados. Además, cuenta con velocidades de 6000 MT/s para evitar retrasos y latencia, y un disipador de perfil bajo para evitar que choque con el disipador Noctua.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.4\linewidth]{../IMG_20260521_213535}
-	\end{figure}
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../IMG_20260521_213535}
+\end{figure}
 	
 	\subsection{ASUS TUF Gaming X870-PLUS}
 	La tarjeta madre ASUS TUF Gaming X870-PLUS cuenta con soporte PCIe 5.0, tanto para GPUs modernas como la RTX 5080, como para SSDs de última generación con altas velocidades de escritura y lectura, lo que asegura que el sistema no se quede obsoleto en un par de años. Sus VRM aguantan las CPUs de alto consumo sin ningún problema, y cuenta con Wi‑Fi 7 y LAN de 5 GbE, ideal para trabajar con archivos en red sin depender de cables.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.4\linewidth]{../IMG_20260521_213626}
-	\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../IMG_20260521_213626}
+
+\end{figure}
+
 	
-	\subsection{Disipación}
+	\subsection{Disipador}
 	El \textbf{Noctua NH-D15 chromax.black} es un excelente disipador, enfriando al nivel de una refrigeración líquida sin los riesgos de esta, y con un ruido mínimo. Sus dos ventiladores de 140 mm y sus seis tubos de cobre absorben el calor del procesador con extrema facilidad.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.4\linewidth]{../IMG_20260521_213737}
-	\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../IMG_20260521_213737}
+\end{figure}
+
 	
 	\subsection{Thermal pad}
 	La \textbf{Thermal Grizzly Kryonaut} es una alternativa a la pasta térmica. Consiste en una lámina de grafeno que transfiere el calor del procesador al disipador. A diferencia de las pastas térmicas tradicionales (donde estas se secan y habría que cambiarlas cada 6 meses), esta puede durar años sin perder eficiencia.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.4\linewidth]{../IMG_20260521_214145}
-	\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../IMG_20260521_214145}
+
+\end{figure}
+
 	
 	\subsection{Fuente de alimentación: MSI MAG A1000GL}
 	Los 1000 vatios de la fuente dan margen de sobra para los picos de consumo que pueden generar la CPU y la GPU juntas. Al tener certificación 80+ Gold y ser totalmente modular, mantiene la eficiencia energética alta permitiendo un montaje muy limpio. Además, ya incluye el conector 12V-2x6 nativo para la RTX 5080, así que te olvidas de usar adaptadores extraños.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.4\linewidth]{../IMG_20260521_213657}
-	\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../IMG_20260521_213657}
+\end{figure}
+
 	
 	\subsection{Almacenamiento: Crucial P310 1 TB}
 	Un SSD Gen4 con 7.100 MB/s de lectura hace que el sistema operativo, los programas y los proyectos carguen en cuestión de segundos. Ofrece 1 TB de espacio para los softwares de renderizado 3D y los proyectos que se vayan a realizar.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.4\linewidth]{../IMG_20260521_213816}
-	\end{figure}
-	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../IMG_20260521_213816}
+\end{figure}
+
+
 	\subsection{Open case}
 	Hemos optado por un open case para mejorar el flujo de aire, facilitar el armado y hacer más sencillo el mantenimiento a futuro.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.4\linewidth]{../IMG_20260521_214222}
-	\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../IMG_20260521_214222}
+
+\end{figure}
+
 	
 	\subsection{Ventiladores extra}
 	Aunque el chasis sea abierto, aún hay que mantener un buen flujo de aire para que este no se quede estancado; por eso elegimos 4 ventiladores Noctua para este trabajo.
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.4\linewidth]{../IMG_20260521_214303}
-	\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{../IMG_20260521_214303}
+
+\end{figure}
+
 	
 	\section{Rendimiento esperado en renderizado 3D}
 	
@@ -201,9 +251,14 @@
 	\section{¿Qué hacemos con lo que queda?}
 	Comprar stickers y luces RGB para más FPS.
 	
+	\section{El Resultado}
+	Con todo lo explicado, es un hecho que contar con una computadora con los componentes elegidos usando el presupuesto inicial, nos permite tener nuestro formidable "Taller" de renderizado 3D, con una computadora asi el nivel de trabajo sera bastante fluido y eficiente, muy comodo y mas aun practico, con seguridad muchos de los trabajos realizados ahi se sostendran bastante bien.
+	
+	\clearpage
+	
 	\section*{Conclusión}
 	Montar un PC para renderizado 3D por menos de \$3.000 es totalmente factible, y este conjunto es una apuesta segura. Hemos puesto el foco en la fiabilidad, el rendimiento sostenido y la ausencia de cuellos de botella. Con esta máquina podrás afrontar proyectos profesionales sin miedo a que el hardware se convierta en un obstáculo.
 	
-	¿El resultado? Una bestia de renderizado, silenciosa y abierta a futuras ampliaciones. Ahora solo te queda pedir los componentes, disfrutar del montaje y ver cómo tus renders vuelan.
+	¿El resultado? Un computador lo suficientemente eficiente para el renderizado, es silenciosa y abierta a futuras ampliaciones.
 	
 \end{document}
