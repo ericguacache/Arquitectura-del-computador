@@ -84,6 +84,21 @@
 		\text{Tiempo de ejecución} = \frac{\text{Número de instrucciones} \times \text{CPI}}{\text{Frecuencia de reloj}}
 	\end{equation}
 	
+	\section{Cálculo de CPI e IPC}
+	
+	El \textbf{CPI} (Ciclos por Instrucción) representa el número promedio de ciclos de reloj que tarda en ejecutarse una instrucción. Su fórmula general es:
+	\begin{equation}
+		\text{CPI} = \frac{\text{Ciclos de reloj de la CPU}}{\text{Número de instrucciones}}
+	\end{equation}
+	
+	
+	Por otro lado, el \textbf{IPC} (Instrucciones por Ciclo) es la métrica inversa al CPI e indica cuántas instrucciones es capaz de ejecutar el procesador en un solo ciclo de reloj:
+	\begin{equation}
+		\text{IPC} = \frac{1}{\text{CPI}} = \frac{\text{Número de instrucciones}}{\text{Ciclos de reloj de la CPU}}
+	\end{equation}
+	
+	\clearpage
+	
 	\section{Cosas que tienes que recordar}
 	
 	\begin{table}[h!]
@@ -100,6 +115,8 @@
 			CPI & Ciclos de reloj promedio por instrucción & Ciclos / Instrucción \\
 			\midrule
 			Frecuencia de reloj & Velocidad de oscilación del reloj del sistema & Hertz (Hz), Gigahertz (GHz) \\
+			\midrule
+			IPC & Instrucciones por ciclo & Instrucción / Ciclos \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
