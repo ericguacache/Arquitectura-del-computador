@@ -109,9 +109,7 @@ part_end:
     addi $t2, $t2, 1     
     sll $t6, $t2, 2      
     add $t6, $a0, $t6    
-    
     lw $t7, 0($t6)      
-    
     sw $t1, 0($t6)       
     sw $t7, 0($t0)       
 
@@ -131,8 +129,8 @@ print_loop:
     li $v0, 1
     syscall
     
-    li $v0, 4
     la $a0, esp
+    li $v0, 4
     syscall
     
     addi $t0, $t0, 4     
