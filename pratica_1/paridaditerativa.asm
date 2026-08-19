@@ -1,7 +1,8 @@
 .data
 	msj1: .asciiz "Ingrese un Numero: "
-	salto: .asciiz "\n"
 	msj2: .asciiz "El resultado es: "
+	salto: .asciiz "\n"
+	
 .text
 
 	main:

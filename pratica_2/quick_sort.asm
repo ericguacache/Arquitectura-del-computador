@@ -2,7 +2,6 @@
 
     arreglo:  .word 12, 4, 8, 2, 9, 7, 5, 10, 3, 1
     tam:   .word 10
-    
     msg_ini:.asciiz "Arreglo original: "
     msg_fin:.asciiz "\nArreglo ordenado: "
     esp:  .asciiz " "
@@ -16,11 +15,12 @@ main:
     la $a0, msg_ini
     li $v0, 4
     syscall
+    
     jal print_arreglo
 
-    la $a0, arreglo       
+    la $a0, arreglo     
+    la $t0, tam  
     li $a1, 0           
-    la $t0, tam
     lw $t0, 0($t0)      
     addi $a2, $t0, -1   
 
@@ -51,14 +51,17 @@ quicksort:
     sw $s0, 0($sp)       
 
     jal part
+    
     move $s0, $v0        
 
     addi $a2, $s0, -1   
+    
     jal quicksort
 
     lw $a0, 12($sp)      
     addi $a1, $s0, 1     
-    lw $a2, 4($sp)       
+    lw $a2, 4($sp)   
+        
     jal quicksort
 
     lw $s0, 0($sp)
