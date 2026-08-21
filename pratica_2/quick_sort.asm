@@ -9,7 +9,6 @@
 
 .text
 
-
 main:
 
     la $a0, msg_ini
