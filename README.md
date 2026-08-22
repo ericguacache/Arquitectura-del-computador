@@ -1,2 +1,4 @@
-# Arquitectura-computador
-Tareas de arquitectura del computador 
+# Arquitectura del computador
+Tareas y trabajos de arquitectura del computador 
+
+![fre.png]
